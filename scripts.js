@@ -124,8 +124,13 @@ function initMobileDropdowns() {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           e.stopPropagation();
+          // Close other dropdowns first
+          dropdowns.forEach(other => {
+            if (other !== dd) other.classList.remove('open');
+          });
           dd.classList.toggle('open');
         }
+        // On desktop, let the <a> tag navigate normally
       });
     }
   });
