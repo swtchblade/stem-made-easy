@@ -138,15 +138,15 @@ function initMobileDropdowns() {
 
 /* --- Highlight Active Nav Link --- */
 function highlightActiveNav() {
-  const currentPage = window.location.pathname.split('/').pop().toLowerCase();
+  const currentPath = window.location.pathname.toLowerCase();
   const links = document.querySelectorAll('.nav-links a, .dropdown-menu a');
   
   links.forEach(link => {
     const href = link.getAttribute('href');
-    if (href) {
-      const linkPage = href.split('/').pop().toLowerCase();
-      if (linkPage === currentPage || 
-          (currentPage === '' && linkPage === 'index.html')) {
+    if (href && !href.startsWith('http') && !href.startsWith('#')) {
+      // Resolve the href to a full URL, then compare pathnames
+      const resolved = new URL(href, window.location.href).pathname.toLowerCase();
+      if (resolved === currentPath) {
         link.classList.add('active');
         // Also highlight parent dropdown if exists
         const dd = link.closest('.nav-dropdown');
