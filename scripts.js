@@ -162,6 +162,30 @@ function highlightActiveNav() {
 
 /* --- Farsi Translations for Vocabulary Terms --- */
 const farsiDictionary = {
+  "Cell theory": "نظریه سلولی",
+  "Microscope": "میکروسکوپ",
+  "Scientific theory": "نظریه علمی",
+  "Organelle": "اندامک",
+  "Eukaryotic Cells": "سلول‌های یوکاریوتی",
+  "Prokaryotic Cells": "سلول‌های پروکاریوتی",
+  "Cell division": "تقسیم سلولی",
+  "Spindle fibers": "رشته‌های دوک",
+  "Ribosomes": "ریبوزوم‌ها",
+  "Endoplasmic Reticulum (ER)": "شبکه آندوپلاسمی (ER)",
+  "Rough ER": "شبکه آندوپلاسمی زبر",
+  "Smooth ER": "شبکه آندوپلاسمی صاف",
+  "Golgi Apparatus": "دستگاه گلژی",
+  "Vesicles": "وزیکول‌ها",
+  "Cytoplasm": "سیتوپلاسم",
+  "Cell Membrane": "غشای سلولی",
+  "Cell Wall": "دیواره سلولی",
+  "Chloroplasts": "کلروپلاست‌ها",
+  "Large Central Vacuole": "واکوئل مرکزی بزرگ",
+  "Prophase": "پروفاز",
+  "Metaphase": "متافاز",
+  "Anaphase": "آنافاز",
+  "Telophase": "تلوفاز",
+  "Cytokinesis (After Mitosis)": "سیتوکینز (پس از میتوز)",
   "Rotation": "چرخش",
   "Revolution": "گردش مداری",
   "Axis tilt": "انحراف محوری",
@@ -433,7 +457,7 @@ const farsiDictionary = {
 };
 
 function initFarsiTooltips() {
-  const vocabTerms = document.querySelectorAll('.vocab-list li strong');
+  const vocabTerms = document.querySelectorAll('.vocab-list li strong, .card .bullet-list li strong, .card p strong, .content-row h4 strong');
   
   vocabTerms.forEach(term => {
     // Attempt an exact match, stripping colons or dashes if accidentally included
