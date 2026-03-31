@@ -636,6 +636,64 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-accent-light);
 }
 
+/* Farsi Tooltips */
+.farsi-tooltip {
+  position: relative;
+  cursor: help;
+  display: inline-block;
+  border-bottom: 1px dashed var(--color-teal);
+}
+
+.farsi-tooltip::after {
+  content: attr(data-fa);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--color-bg-darker);
+  color: var(--color-text-light);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: Tahoma, 'Segoe UI', Arial, sans-serif;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 100;
+  pointer-events: none;
+  direction: rtl;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+}
+
+.farsi-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--color-bg-darker) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 99;
+}
+
+.farsi-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.farsi-tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* Numbered list */
 .numbered-list {
   counter-reset: item;
