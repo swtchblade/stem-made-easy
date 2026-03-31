@@ -437,13 +437,13 @@ function initFarsiTooltips() {
   
   vocabTerms.forEach(term => {
     // Attempt an exact match, stripping colons or dashes if accidentally included
-    let text = term.innerText.replace(/[^a-zA-Z0-9\s()₂\-&/,]/g, "").trim();
+    let text = term.textContent.replace(/[^a-zA-Z0-9\s()₂\-&/,]/g, "").trim();
     if (farsiDictionary[text]) {
       term.classList.add('farsi-tooltip');
       term.setAttribute('data-fa', farsiDictionary[text]);
     } else {
       // Fallback
-      let alternativeText = term.innerText.trim();
+      let alternativeText = term.textContent.trim();
       if(farsiDictionary[alternativeText]){
           term.classList.add('farsi-tooltip');
           term.setAttribute('data-fa', farsiDictionary[alternativeText]);
